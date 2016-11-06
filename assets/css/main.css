@@ -2364,11 +2364,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', end
 #faq2 {
 
 		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1c538e+0,1d8ee5+100 */
-	background: #1c538e; /* Old browsers */
-	background: -moz-linear-gradient(top,  #1c538e 0%, #1d8ee5 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  #1c538e 0%,#1d8ee5 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  #1c538e 0%,#1d8ee5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c538e', endColorstr='#1d8ee5',GradientType=0 ); /* IE6-9 */
+	background-color: #1c538e; /* Old browsers */
 
 }
 
@@ -2389,3 +2385,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', end
 .faq > .container {
 	padding-top: 30px;
 }
+
+tabl
