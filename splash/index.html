@@ -74,8 +74,7 @@
 									  </tr>
 									  <tr>
 									    <td>Chess</td>
-									    <td>In Chess, learn strategies and skills in this fun, classic game!
-</td>
+									    <td>In Chess, learn strategies and skills in this fun, classic game!</td>
 									    <td>All</td>
 									  </tr>
 										<tr>
@@ -87,6 +86,11 @@
 									    <td>Fun English</td>
 									    <td>Learn about grammar in a fun and entertaining way</td>
 									    <td>2 - 8</td>
+									  </tr>
+                    <tr>
+									    <td>Go</td>
+									    <td>Learn how to play the world's oldest board game!</td>
+									    <td>All</td>
 									  </tr>
 										<tr>
 									    <td>Sewing</td>
@@ -108,6 +112,21 @@
 									    <td>Learn how to program in Scratch, a friendly, introductory programming interface! Create small games and cool programs! </td>
 									    <td>All</td>
 									  </tr>
+                    <tr>
+									    <td>Web development</td>
+									    <td>Learn how to make websites with HTML and CSS!</td>
+									    <td>All</td>
+									  </tr>
+                    <tr>
+									    <td>Videogame Development</td>
+									    <td>Learn how to make very simple text-based videogames with the Lua programming language!</td>
+									    <td>All</td>
+									  </tr>
+                    <tr>
+									    <td>Cryptography</td>
+									    <td>Learn how to make secret codes and messages!</td>
+									    <td>All</td>
+									  </tr>
 										<tr>
 									    <td>Boomerangs</td>
 									    <td>Learn how to make your own boomerang</td>
@@ -123,37 +142,12 @@
 									    <td> Learn about the environment, and observe several demonstrations of pollution and the movement of waste in water, and more!</td>
 									    <td>All</td>
 									  </tr>
-
+                    <tr>
+									    <td>Oobleck experiment</td>
+									    <td>Learn about one of the most interesting parts of physics: liquids that are solids!</td>
+									    <td>All</td>
+									  </tr>
 									</table>
-
-								<script>
-									// this is a temporary solution
-									// when we implement React.js, we'll remove this
-
-									// this will eventually be moved to a Firebase DB
-									const courses = [];
-
-									const isValidCourse = course =>
-										course.name &&
-										course.description &&
-										course.grades &&
-										course.grades.min > 0 &&
-										course.grades.max < 9;
-
-									const courseNodes = courses.filter(isValidCourse).map(course => `
-										<div>
-											<h3>${course.name}</h3>
-											<p>
-												<em>For grades ${course.grades.min} through ${course.grades.max}</em> <br />
-												${course.description}
-											</p>
-										</div>
-									`);
-
-									for (let course of courseNodes) {
-										document.write(course);
-									}
-								</script>
 							</section>
           </div>
 
