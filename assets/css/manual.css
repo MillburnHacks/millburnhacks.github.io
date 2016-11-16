@@ -1,0 +1,24 @@
+/*Artisinal, hand-crafted CSS*/
+
+.container {
+  min-width: 50%;
+  max-width: 80%;
+  margin-right: 25%;
+  margin-left: 25%;
+  text-align: justify;
+  display: inline-block;
+}
+
+.container .row {
+  margin-top: 30px;
+}
+
+table {
+  min-width: 50%;
+  margin-right: 100px;
+  margin-left: 0;
+}
+
+section {
+  background-color: #0272c8;
+}
