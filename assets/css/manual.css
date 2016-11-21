@@ -22,3 +22,57 @@ table {
 section {
   background-color: #0272c8;
 }
+
+.sponsors{
+  text-align: center;
+  background-color: #26bfff;
+}
+
+.sponsors > * {
+  display: inline-block;
+}
+
+.list {
+  padding-top: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 100px;
+}
+
+.list-mobile {
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  position: fixed;
+  z-index: -100;
+}
+
+.title_1{
+  text-align: center;
+}
+
+
+@media screen and (max-width: 480px) {
+
+.list {
+  opacity: 0;
+  z-index: -100;
+  position: fixed;
+
+}
+
+.list-mobile{
+  opacity: 1;
+  position: relative;
+
+}
+
+.sponsors {
+  opacity: 0;
+  position: fixed;
+  margin-top: -100%;
+  z-index: -100;
+}
+
+}
