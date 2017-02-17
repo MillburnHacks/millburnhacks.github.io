@@ -1,7 +1,7 @@
 import React from 'react';
-import firebase from "firebase";
+import firebase from 'firebase';
 
-const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 export default class Club extends React.Component {
   constructor({ params }) {
@@ -9,23 +9,36 @@ export default class Club extends React.Component {
 
     // set up the default state
     this.state = {
-      name: "",
+      name: '',
       meetings: [],
-      slogan: "",
+      slogan: '',
       officers: {},
-      description: ""
+      description: '',
     };
 
-    firebase.database().ref(`/club/${params.clubID}`).once("value").then(club => this.setState(club.val()))
+    firebase.database().ref(`/club/${params.clubID}`).once('value').then(club => this.setState(club.val()));
   }
 
   render() {
+    const MeetingDay = ({ day }) => (
+      <div>
+        <p>Meets in {this.state.meetings[day]} on {day}</p>
+      </div>
+    );
+    const Officer = ({ officer }) => (
+      <div>
+        <p> {officer} is {this.state.officers[officer]} </p>
+      </div>
+    );
+
+    const meetingDays = Object.keys(this.state.meetings);
+    const officers = Object.keys(this.state.officers);
     return (
       <div>
         <h1>{this.state.name}</h1>
         <h2>{this.state.slogan}</h2>
-        {Object.keys(this.state.meetings).map(day => <p key={days.indexOf(day)}>Meets in {this.state.meetings[day]} on {day}</p>)}
-        {Object.keys(this.state.officers).map((person, i) => <p key={i}>{person} is {this.state.officers[person]}</p>)}
+        {meetingDays.map(day => <MeetingDay day={day} key={days.indexOf(day)} />)}
+        {officers.map(officer => <Officer officer={officer} key={officer} />)}
         <p>{this.state.description}</p>
       </div>
     );

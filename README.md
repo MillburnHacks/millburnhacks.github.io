@@ -16,7 +16,10 @@ all at once.
 npm run dev
 ```
 
-To deploy the current code, run `firebase deploy`.
+To lint (i.e. check for code errors and warnings), run `npm run lint`. Note that you cannot commit
+any changes if they fail the lint.
+
+To deploy the current code, run `npm run deploy`.
 
 The app folder has the client code, which handles most of the app's functionality. The styles
 folder has the stylesheets.
