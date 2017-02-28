@@ -2,8 +2,10 @@
 
 import React from 'react';
 
+window.onbeforeunload = () => window.scrollTo(0, 0);
+
 const App = ({ children }) => (
-  <div>
+  <div className="page">
     <div>{children}</div>
   </div>
 );

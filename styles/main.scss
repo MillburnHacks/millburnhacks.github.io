@@ -1,1 +1,75 @@
-@import 'tools/base';
+$font-stack: 'Century Gothic', 'Helvetica', 'Arial';
+
+// please declare all variables here that change the APPEARANCE of the website (e.g. font color)
+// if they change the way the appearance is handled or processed, write them in the code afterwards
+// this will make it easier to change minor things about the website appearance
+
+$h1-font-size: 10vmax;
+$h2-font-size: 5vmax;
+$h3-font-size: 4vmax;
+$p-font-size: auto;
+
+$banner-background-color: #62b2ff;
+$section-background-color: darken($banner-background-color, 10);
+
+$text-color: #eee;
+
+html,
+body {
+  background: $section-background-color; // for Mac scrolling past the page itself
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  color: $text-color;
+  font: {
+    family: $font-stack;
+  }
+};
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+p {
+  font-size: $p-font-size;
+}
+
+.page {
+  section {
+    background: $section-background-color;
+    height: 100vh; // fill the screen
+    margin: 0;
+    padding: 1vw;
+  }
+
+  .banner {
+    align-items: center;
+    background: $banner-background-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1px;
+    text-align: center;
+  }
+
+  :last-child {
+    padding-bottom: 0;
+  }
+};

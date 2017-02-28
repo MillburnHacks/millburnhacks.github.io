@@ -34,9 +34,13 @@ export default class Event extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.state.name}</h1>
-        {this.dateNode()}
-        <p>{this.state.description}</p>
+        <section className="banner">
+          <h1>{this.state.name}</h1>
+          {this.dateNode()}
+        </section>
+        <section>
+          <p>{this.state.description}</p>
+        </section>
       </div>
     );
   }

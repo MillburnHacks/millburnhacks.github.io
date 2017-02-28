@@ -57,3 +57,11 @@ An event has the following structure:
   clubID: "eoihgi903u90fn" // optional
 }
 ```
+
+## Page structure
+
+The App component marks all pages with the `page` class, allowing the Sass to select the pages.
+
+A page is divided into `section`s, which fill the screen.
+
+A banner is a section whose children are centered in both axes and has a slightly lighter colour.

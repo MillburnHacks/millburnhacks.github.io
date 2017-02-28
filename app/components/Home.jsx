@@ -39,10 +39,13 @@ export default class Home extends React.Component {
     const clubIDs = Object.keys(this.state.clubs);
     return (
       <div>
-        <h1>Millburn HACKS</h1>
-
-        <h2>Clubs</h2>
-        {clubIDs.map(id => <Club key={id} src={this.state.clubs[id]} clubID={id} />)}
+        <section className="banner">
+          <h1>Millburn HACKS</h1>
+        </section>
+        <section>
+          <h2>Clubs</h2>
+          {clubIDs.map(id => <Club key={id} src={this.state.clubs[id]} clubID={id} />)}
+        </section>
       </div>
     );
   }

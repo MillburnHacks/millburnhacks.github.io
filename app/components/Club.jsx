@@ -35,11 +35,15 @@ export default class Club extends React.Component {
     const officers = Object.keys(this.state.officers);
     return (
       <div>
-        <h1>{this.state.name}</h1>
-        <h2>{this.state.slogan}</h2>
-        {meetingDays.map(day => <MeetingDay day={day} key={days.indexOf(day)} />)}
-        {officers.map(officer => <Officer officer={officer} key={officer} />)}
-        <p>{this.state.description}</p>
+        <section className="banner">
+          <h1>{this.state.name}</h1>
+          <h2>{this.state.slogan}</h2>
+        </section>
+        <section>
+          {meetingDays.map(day => <MeetingDay day={day} key={days.indexOf(day)} />)}
+          {officers.map(officer => <Officer officer={officer} key={officer} />)}
+          <p>{this.state.description}</p>
+        </section>
       </div>
     );
   }
