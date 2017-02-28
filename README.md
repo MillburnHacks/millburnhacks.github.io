@@ -46,3 +46,14 @@ A club follows the following structure:
   description: "Category theory is math without any actual stuff, just arrows and thingies",
 }
 ```
+
+An event has the following structure:
+
+```js
+{
+  name: "Abhinav's Birthday",
+  date: { yyyy: 1999, mm: 01, dd: 24 }, // 1999 January 24
+  description: "Come for the fetus, stay for the baby",
+  clubID: "eoihgi903u90fn" // optional
+}
+```

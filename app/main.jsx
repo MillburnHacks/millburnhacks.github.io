@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import App from './components/App.jsx';
 import Home from './components/Home.jsx';
 import Club from './components/Club.jsx';
+import Event from './components/Event.jsx';
 
 firebase.initializeApp({
   authDomain: 'millburnhacks.firebaseio.com',
@@ -18,6 +19,7 @@ ReactDOM.render((
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/club/:clubID" component={Club} />
+      <Route path="/event/:eventID" component={Event} />
     </Route>
   </Router>
 ), document.getElementById('container'));
