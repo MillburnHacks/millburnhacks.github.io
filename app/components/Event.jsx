@@ -26,7 +26,7 @@ export default class Event extends React.Component {
 
   dateNode() {
     return this.state.date.yyyy ?
-      <h2>{this.state.date.yyyy}-{months[this.state.date.mm - 1]}-{this.state.date.dd}</h2>
+      <h2>{this.state.date.yyyy} {months[this.state.date.mm - 1]} {this.state.date.dd}</h2>
     :
       <div />;
   }

@@ -23,3 +23,5 @@ ReactDOM.render((
     </Route>
   </Router>
 ), document.getElementById('container'));
+
+browserHistory.listen(() => window.scrollTo(0, 0));
