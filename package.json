@@ -38,7 +38,7 @@
     "watch": "gulp watch & webpack --watch",
     "dev": "npm run watch & firebase serve",
     "lint": "./node_modules/.bin/eslint app/**/** && sass-lint -c .sass-lint.yml 'styles/**/*.scss' -v -q",
-    "deploy": "npm run build && npm run lint && firebase deploy"
+    "deploy": "npm run build && npm run lint && git push && firebase deploy"
   },
   "pre-commit": [
     "lint",
