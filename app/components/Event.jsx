@@ -22,7 +22,8 @@ export default class Event extends React.Component {
       .database()
       .ref(`/event/${params.eventID}`)
       .once('value')
-      .then(event => this.setState(event.val()));
+      .then(event => this.setState(event.val()))
+      .then(() => { document.title = this.state.name; });
     firebase
       .storage()
       .ref(`/event/${params.eventID}`)
@@ -43,7 +44,6 @@ export default class Event extends React.Component {
   render() {
     return (
       <div>
-        <title>{this.state.name}</title>
         <section className="banner">
           <h1>{this.state.name}</h1>
           {this.dateNode()}

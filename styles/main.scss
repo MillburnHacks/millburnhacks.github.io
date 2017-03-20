@@ -18,6 +18,8 @@ $section-background-color: darken($banner-background-color, 10);
 
 $text-color: #eee;
 
+$sections-margin: 5px; // the margin before the first and after the last section on a page
+
 html,
 body {
   background: $section-background-color; // for Mac scrolling past the page itself
@@ -57,13 +59,19 @@ p {
 }
 
 .page {
-  padding-bottom: 10px; // for comfort
-
   section {
     background: $section-background-color;
     height: 100vh; // fill the screen
     margin: 0;
     padding: 1vw;
+
+    :nth-of-type(2) {
+      margin-top: $sections-margin;
+    }
+
+    :last-of-type {
+      margin-bottom: $sections-margin;
+    }
   }
 
   .banner {
@@ -74,10 +82,6 @@ p {
     justify-content: center;
     padding: 1px;
     text-align: center;
-  }
-
-  :last-child {
-    padding-bottom: 0;
   }
 
   .description {

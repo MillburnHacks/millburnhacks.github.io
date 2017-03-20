@@ -16,7 +16,12 @@ export default class Club extends React.Component {
       description: '',
     };
 
-    firebase.database().ref(`/club/${params.clubID}`).once('value').then(club => this.setState(club.val()));
+    firebase
+      .database()
+      .ref(`/club/${params.clubID}`)
+      .once('value')
+      .then(club => this.setState(club.val()))
+      .then(() => { document.title = this.state.name; });
   }
 
   render() {
@@ -35,7 +40,6 @@ export default class Club extends React.Component {
     const officers = Object.keys(this.state.officers);
     return (
       <div>
-        <title>{this.state.name}</title>
         <section className="banner">
           <h1>{this.state.name}</h1>
           <h2>{this.state.slogan}</h2>

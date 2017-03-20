@@ -69,6 +69,10 @@ export default class Home extends React.Component {
       .then(events => this.setState({ events: events.val() }));
   }
 
+  componentDidMount() {
+    document.title = 'Millburn Hacks';
+  }
+
   render() {
     const clubIDs = Object.keys(this.state.clubs);
     const eventIDs = Object.keys(this.state.events);
