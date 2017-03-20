@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
+import ReactMarkdown from 'react-markdown';
 
 // used to convert a numerical month to a written one
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Sep', 'Aug', 'Oct', 'Nov', 'Dec'];
@@ -16,12 +17,20 @@ export default class Event extends React.Component {
       clubID: '',
     };
 
-    // load the event from Firebase's database
+    // load the event from Firebase's database and storage
     firebase
       .database()
       .ref(`/event/${params.eventID}`)
       .once('value')
       .then(event => this.setState(event.val()));
+    firebase
+      .storage()
+      .ref(`/event/${params.eventID}`)
+      .child('description.md')
+      .getDownloadURL()
+      .then(fetch)
+      .then(response => response.text())
+      .then(description => this.setState({ description }));
   }
 
   dateNode() {
@@ -34,12 +43,13 @@ export default class Event extends React.Component {
   render() {
     return (
       <div>
+        <title>{this.state.name}</title>
         <section className="banner">
           <h1>{this.state.name}</h1>
           {this.dateNode()}
         </section>
-        <section>
-          <p>{this.state.description}</p>
+        <section className="description">
+          <ReactMarkdown source={this.state.description} />
         </section>
       </div>
     );

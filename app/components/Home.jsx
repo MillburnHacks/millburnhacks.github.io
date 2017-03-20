@@ -77,9 +77,10 @@ export default class Home extends React.Component {
         <section className="banner">
           <h1>Millburn HACKS</h1>
         </section>
-        <section>
+        <section className="row">
           <h2>Clubs</h2>
-          {clubIDs.map(id => <Club key={id} src={this.state.clubs[id]} clubID={id} />)}
+          {clubIDs.map(id => <div key={id} className="one-third column">
+            <Club src={this.state.clubs[id]} clubID={id} /></div>)}
         </section>
         <section>
           <h2>Events</h2>

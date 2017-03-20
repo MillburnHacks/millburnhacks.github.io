@@ -11,6 +11,7 @@ import Event from './components/Event.jsx';
 firebase.initializeApp({
   authDomain: 'millburnhacks.firebaseio.com',
   databaseURL: 'https://millburnhacks.firebaseio.com',
+  storageBucket: 'gs://millburnhacks.appspot.com',
 });
 
 // set up routing
