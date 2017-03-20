@@ -1,0 +1,93 @@
+@import '../node_modules/skeleton-sass-official/skeleton/core/config';
+@import '../node_modules/skeleton-sass-official/skeleton/core/functions';
+@import '../node_modules/skeleton-sass-official/skeleton/core/mixins';
+
+$font-stack: 'Century Gothic', 'Helvetica', 'Arial';
+
+// please declare all variables here that change the APPEARANCE of the website (e.g. font color)
+// if they change the way the appearance is handled or processed, write them in the code afterwards
+// this will make it easier to change minor things about the website appearance
+
+$h1-font-size: 50pt;
+$h2-font-size: 25pt;
+$h3-font-size: 18pt;
+$p-font-size: 12pt;
+
+$banner-background-color: #62b2ff;
+$section-background-color: darken($banner-background-color, 10);
+
+$text-color: #eee;
+
+$sections-margin: 5px; // the margin before the first and after the last section on a page
+
+html,
+body {
+  background: $section-background-color; // for Mac scrolling past the page itself
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a {
+  color: $text-color;
+  font: {
+    family: $font-stack;
+  }
+};
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+p {
+  font-size: $p-font-size;
+}
+
+.page {
+  section {
+    background: $section-background-color;
+    height: 100vh; // fill the screen
+    margin: 0;
+    padding: 1vw;
+
+    :nth-of-type(2) {
+      margin-top: $sections-margin;
+    }
+
+    :last-of-type {
+      margin-bottom: $sections-margin;
+    }
+  }
+
+  .banner {
+    align-items: center;
+    background: $banner-background-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1px;
+    text-align: center;
+  }
+
+  .description {
+    margin: auto;
+    max-width: 50em;
+    min-width: 300px;
+    width: 50%;
+  }
+};
