@@ -55,7 +55,8 @@ An event has the following structure:
 {
   name: "Abhinav's Birthday",
   date: { yyyy: 1999, mm: 01, dd: 24 }, // 1999 January 24
-  clubID: "eoihgi903u90fn" // optional
+  clubID: "ai", // optional
+  registrationLink: "https://docs.google.com/forms/d/oiewhgoiwehg" // any link is supported
 }
 ```
 

@@ -16,6 +16,11 @@ $p-font-size: 12pt;
 $banner-background-color: #62b2ff;
 $section-background-color: darken($banner-background-color, 10);
 
+$button-width: auto;
+$button-height: 50px;
+$button-color: darken($banner-background-color, 15);
+$button-border-color: lighten($banner-background-color, 15);
+
 $text-color: #eee;
 
 $sections-margin: 5px; // the margin before the first and after the last section on a page
@@ -56,6 +61,20 @@ h3 {
 
 p {
   font-size: $p-font-size;
+}
+
+button {
+  background-color: $button-color;
+  border: {
+    color: $button-border-color;
+    style: solid;
+  }
+  color: $text-color;
+  font: {
+    size: $h3-font-size;
+  }
+  height: $button-height;
+  width: $button-width;
 }
 
 .page {

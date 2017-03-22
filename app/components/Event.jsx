@@ -15,6 +15,7 @@ export default class Event extends React.Component {
       date: { yyyy: undefined, mm: undefined, dd: undefined },
       description: '',
       clubID: '',
+      registrationLink: '',
     };
 
     // load the event from Firebase's database and storage
@@ -32,6 +33,8 @@ export default class Event extends React.Component {
       .then(fetch)
       .then(response => response.text())
       .then(description => this.setState({ description }));
+
+    this.register = this.register.bind(this);
   }
 
   dateNode() {
@@ -41,12 +44,20 @@ export default class Event extends React.Component {
       <div />;
   }
 
+  register(event) {
+    event.preventDefault();
+    window.location = this.state.registrationLink;
+  }
+
   render() {
     return (
       <div>
         <section className="banner">
           <h1>{this.state.name}</h1>
           {this.dateNode()}
+          <form onSubmit={this.register}>
+            <button>Register</button>
+          </form>
         </section>
         <section className="description">
           <ReactMarkdown source={this.state.description} />
