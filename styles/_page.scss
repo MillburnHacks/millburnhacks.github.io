@@ -1,0 +1,48 @@
+.page {
+  background: $page-background-overlay, $page-background;
+  background-attachment: fixed;
+  background-size: cover;
+
+  header {
+    align-items: center;
+    color: $page-header-text-color;
+    display: flex;
+    flex-flow: row nowrap;
+    height: $page-header-height;
+    justify-content: center;
+    padding: $page-header-padding-horizontal;
+    width: 100%;
+
+    h1 {
+      font-size: $page-header-h1-font-size;
+    }
+  }
+
+  section {
+    align-items: flex-start;
+    background: $page-section-background;
+    color: $page-section-text-color;
+    display: flex;
+    flex-flow: column nowrap;
+    height: auto;
+    justify-content: center;
+    padding: $section-padding-vertical $section-padding-horizontal;
+    width: 100%;
+
+    h2 {
+      font-size: $section-h2-font-size;
+      padding: $section-h2-padding-vertical $section-h2-padding-horizontal;
+      text-align: center;
+    }
+  }
+
+  footer {
+    align-items: center;
+    color: $footer-text-color;
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: $footer-font-size;
+    justify-content: center;
+    padding: $footer-padding-vertical $footer-padding-horizontal;
+  }
+}

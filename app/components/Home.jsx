@@ -2,50 +2,6 @@ import React from 'react';
 import firebase from 'firebase';
 import { Link } from 'react-router';
 
-const Club = ({ src, clubID }) => (
-  <div>
-    <h3>{src.name}</h3>
-    <p>{src.slogan}</p>
-    <Link to={`/club/${clubID}`}>See more</Link>
-  </div>
-);
-
-Club.propTypes = {
-  src: React.PropTypes.shape({
-    [React.PropTypes.string]: React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-      meetings: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
-      slogan: React.PropTypes.string.isRequired,
-      officers: React.PropTypes.object.isRequired,
-      description: React.PropTypes.string.isRequired,
-    }),
-  }).isRequired,
-  clubID: React.PropTypes.string.isRequired,
-};
-
-const Event = ({ src, eventID }) => (
-  <div>
-    <h3>{src.name}</h3>
-    <p>Date: {src.date.mm}-{src.date.dd}</p>
-    <Link to={`/event/${eventID}`}>See more</Link>
-  </div>
-);
-
-Event.propTypes = {
-  src: React.PropTypes.shape({
-    [React.PropTypes.string]: React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-      date: React.PropTypes.shape({
-        yyyy: React.PropTypes.number,
-        mm: React.PropTypes.number,
-        dd: React.PropTypes.number,
-      }).isRequired,
-      description: React.PropTypes.string.isRequired,
-    }),
-  }).isRequired,
-  eventID: React.PropTypes.string.isRequired,
-};
-
 export default class Home extends React.Component {
   constructor() {
     super();
@@ -76,19 +32,47 @@ export default class Home extends React.Component {
   render() {
     const clubIDs = Object.keys(this.state.clubs);
     const eventIDs = Object.keys(this.state.events);
+
+    const ClubNode = ({ id }) => (
+      <div className="card">
+        <div className="header" />
+        <div className="info">
+          <h3>{this.state.clubs[id].name}</h3>
+          <p>{this.state.clubs[id].slogan}</p>
+          <Link to={`/club/${id}`}>See more</Link>
+        </div>
+      </div>
+    );
+
+    const EventNode = ({ id }) => (
+      <div className="card">
+        <div className="header" />
+        <div className="info">
+          <h3>{this.state.events[id].name}</h3>
+          <p>Date: {this.state.events[id].date.mm}-{this.state.events[id].date.dd}</p>
+          <Link to={`/event/${id}`}>See more</Link>
+        </div>
+      </div>
+    );
+
     return (
       <div>
-        <section className="banner">
+        <header>
           <h1>Millburn HACKS</h1>
-        </section>
-        <section className="row">
+        </header>
+
+        <section className="club">
           <h2>Clubs</h2>
-          {clubIDs.map(id => <div key={id} className="one-third column">
-            <Club src={this.state.clubs[id]} clubID={id} /></div>)}
+          <div className="card-wrapper">
+            {clubIDs.map(id => <ClubNode key={id} id={id} />)}
+          </div>
         </section>
-        <section>
+
+        <section className="club">
           <h2>Events</h2>
-          {eventIDs.map(id => <Event key={id} src={this.state.events[id]} eventID={id} />)}
+          <div className="card-wrapper">
+            {eventIDs.map(id => <EventNode key={id} id={id} />)}
+          </div>
         </section>
       </div>
     );

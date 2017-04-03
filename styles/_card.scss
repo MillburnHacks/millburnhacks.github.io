@@ -1,0 +1,50 @@
+// this defines the structure of the clubs and events sections
+// each section is a card wrapper that has cards in it
+// a card has 2 sections: a header and an info section
+// the header has an image of the club or event
+// the info describes the club or event
+// TODO: enable images for clubs and events
+
+.card-wrapper {
+  color: $card-text-color; // color in which the text on the cards is written
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  @media (max-width: 1140px) {
+    justify-content: center;
+  }
+
+  .card {
+    background: $card-color-bg;
+    box-shadow: $card-shadow;
+    flex: 1;
+    margin: $card-margin-vertical $card-margin-horizontal;
+    max-width: $card-max-width;
+    min-width: $card-min-width;
+    width: $card-width;
+
+    // where the image goes
+    .header {
+      // the background is an image relating to the club or event
+      // above the background is a gradient that adds an effect
+      // TODO: enable background images relating to the card's topic
+      background: linear-gradient($card-header-overlay-color-top, $card-header-overlay-color-bottom);
+      background-size: cover;
+      min-height: $card-header-min-height;
+    }
+
+    // where the description goes
+    .info {
+      align-items: center;
+      display: flex;
+      flex-flow: column nowrap;
+      margin: $card-info-margin;
+
+      h1,
+      p,
+      a {
+        margin-top: $card-info-text-margin-top;
+      }
+    }
+  }
+}

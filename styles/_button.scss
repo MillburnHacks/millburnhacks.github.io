@@ -1,0 +1,13 @@
+button {
+  background-color: $button-color;
+  border: {
+    color: $button-border-color;
+    style: solid;
+  }
+  color: $button-text-color;
+  font: {
+    size: $button-text-font-size;
+  }
+  height: $button-height;
+  width: $button-width;
+}

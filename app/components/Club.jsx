@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
-import ReactMarkdown from 'react-markdown';
+import CommonMark from 'commonmark';
+import ReactRenderer from 'commonmark-react-renderer';
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -48,16 +49,47 @@ export default class Club extends React.Component {
 
     const meetingDays = Object.keys(this.state.meetings);
     const officers = Object.keys(this.state.officers);
+
+    const markdownParser = new CommonMark.Parser();
+    const markdownRenderer = new ReactRenderer();
+
+    const descriptionNodes = markdownRenderer.render(markdownParser.parse(this.state.description));
+    const descriptionCards = descriptionNodes
+      .reduce((cards, node) => {
+        if (node.type === 'p') {
+          cards[cards.length - 1].push(node);
+        }
+
+        if (node.type.name === 'Heading') {
+          cards.push([node]);
+        }
+
+        return cards;
+      }, [])
+      .map(card => (
+        <div className="card">
+          <div className="info">
+            {card}
+          </div>
+        </div>
+      ));
+
     return (
       <div>
-        <section className="banner">
+        <header>
           <h1>{this.state.name}</h1>
-          <h2>{this.state.slogan}</h2>
-        </section>
-        <section className="description">
-          {meetingDays.map(day => <MeetingDay day={day} key={days.indexOf(day)} />)}
-          {officers.map(officer => <Officer officer={officer} key={officer} />)}
-          <ReactMarkdown source={this.state.description} />
+        </header>
+        <section className="club">
+          <div className="card-wrapper">
+            <div className="card">
+              <div className="info">
+                <h2>Basic Info</h2>
+                {meetingDays.map(day => <MeetingDay day={day} key={days.indexOf(day)} />)}
+                {officers.map(officer => <Officer officer={officer} key={officer} />)}
+              </div>
+            </div>
+            {descriptionCards}
+          </div>
         </section>
       </div>
     );
