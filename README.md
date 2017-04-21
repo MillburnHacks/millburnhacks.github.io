@@ -46,8 +46,8 @@ A club follows the following structure:
 }
 ```
 
-A club should also have a description.md file stored as "gs://club/:clubID/description.md"
-
+A club should also have a description.md file stored as "gs://club/:clubID/description.md" and
+an image.png file next to it.
 
 An event has the following structure:
 
@@ -60,7 +60,8 @@ An event has the following structure:
 }
 ```
 
-An event should also have a description.md file stored as "gs://event/:eventID/description.md"
+An event should also have a description.md file stored as "gs://event/:eventID/description.md" and
+an image.png file next to it.
 
 ## Page structure
 

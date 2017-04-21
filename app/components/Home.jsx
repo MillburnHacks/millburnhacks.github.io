@@ -16,13 +16,37 @@ export default class Home extends React.Component {
       .database()
       .ref('/club/')
       .once('value')
-      .then(clubs => this.setState({ clubs: clubs.val() }));
+      .then(clubs => this.setState({ clubs: clubs.val() }))
+      .then(() => Object.keys(this.state.clubs).forEach((id) => {
+        const club = this.state.clubs[id];
+        const clubs = this.state.clubs;
+        firebase
+          .storage()
+          .ref(`/club/${id}`)
+          .child('image.png')
+          .getDownloadURL()
+          .then((imageURL) => { club.imageURL = imageURL; })
+          .then(() => { clubs[id] = club; })
+          .then(() => this.setState({ clubs }));
+      }));
 
     firebase
       .database()
       .ref('/event/')
       .once('value')
-      .then(events => this.setState({ events: events.val() }));
+      .then(events => this.setState({ events: events.val() }))
+      .then(() => Object.keys(this.state.events).forEach((id) => {
+        const event = this.state.events[id];
+        const events = this.state.events;
+        firebase
+          .storage()
+          .ref(`/event/${id}`)
+          .child('image.png')
+          .getDownloadURL()
+          .then((imageURL) => { event.imageURL = imageURL; })
+          .then(() => { events[id] = event; })
+          .then(() => this.setState({ events }));
+      }));
   }
 
   componentDidMount() {
@@ -35,7 +59,7 @@ export default class Home extends React.Component {
 
     const ClubNode = ({ id }) => (
       <div className="card">
-        <div className="header" />
+        <img src={this.state.clubs[id].imageURL} className="club-image" alt="" />
         <div className="info">
           <h3>{this.state.clubs[id].name}</h3>
           <p>{this.state.clubs[id].slogan}</p>
@@ -46,7 +70,7 @@ export default class Home extends React.Component {
 
     const EventNode = ({ id }) => (
       <div className="card">
-        <div className="header" />
+        <img src={this.state.events[id].imageURL} className="club-image" alt="" />
         <div className="info">
           <h3>{this.state.events[id].name}</h3>
           <p>Date: {this.state.events[id].date.mm}-{this.state.events[id].date.dd}</p>
@@ -68,7 +92,7 @@ export default class Home extends React.Component {
           </div>
         </section>
 
-        <section className="club">
+        <section className="event">
           <h2>Events</h2>
           <div className="card-wrapper">
             {eventIDs.map(id => <EventNode key={id} id={id} />)}

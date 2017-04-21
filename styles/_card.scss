@@ -24,13 +24,12 @@
     width: $card-width;
 
     // where the image goes
-    .header {
+    .club-image {
       // the background is an image relating to the club or event
       // above the background is a gradient that adds an effect
-      // TODO: enable background images relating to the card's topic
-      background: linear-gradient($card-header-overlay-color-top, $card-header-overlay-color-bottom);
       background-size: cover;
-      min-height: $card-header-min-height;
+      min-height: $card-club-image-min-height;
+      width: 100%;
     }
 
     // where the description goes
