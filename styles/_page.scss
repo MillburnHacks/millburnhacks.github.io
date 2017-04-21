@@ -7,7 +7,7 @@
     align-items: center;
     color: $page-header-text-color;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     height: $page-header-height;
     justify-content: center;
     padding: $page-header-padding-horizontal;
@@ -15,6 +15,10 @@
 
     h1 {
       font-size: $page-header-h1-font-size;
+    }
+
+    * {
+      margin: $page-header-children-margin;
     }
   }
 

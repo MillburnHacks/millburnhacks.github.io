@@ -1,13 +1,15 @@
 button {
-  background-color: $button-color;
-  border: {
-    color: $button-border-color;
-    style: solid;
-  }
+  background: $button-background;
+  border: $button-border;
   color: $button-text-color;
-  font: {
-    size: $button-text-font-size;
+  font-size: $button-font-size;
+  margin-top: $button-margin-top;
+  padding: $button-padding;
+  transition: $button-transition;
+
+  &:hover {
+    background: $button-hover-background;
+    color: $button-hover-text-color;
+    cursor: pointer;
   }
-  height: $button-height;
-  width: $button-width;
 }

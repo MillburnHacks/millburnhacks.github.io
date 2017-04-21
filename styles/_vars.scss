@@ -33,6 +33,7 @@ $page-header-text-color: #fff;
 $page-header-height: 55vh;
 $page-header-padding-horizontal: 10px;
 $page-header-h1-font-size: calc(2rem + 1.5vw);
+$page-header-children-margin: .7rem 0;
 $page-section-background: #fff;
 $page-section-text-color: #000;
 $section-padding-vertical: .7rem;
@@ -45,11 +46,13 @@ $footer-padding-vertical: 2rem;
 $footer-padding-horizontal: 0;
 $footer-text-color: #000;
 
-
 // button
-$button-width: auto;
-$button-height: 50px;
-$button-color: #3db0bc;
-$button-border-color: #009eae;
+$button-background: transparent;
+$button-border: .01em solid #fff;
 $button-text-color: #fff;
-$button-text-font-size: 15em;
+$button-font-size: calc(1rem + .5vw);
+$button-margin-top: .5em;
+$button-padding: .5em 1em;
+$button-transition: all .2s ease-in-out;
+$button-hover-background: #fff;
+$button-hover-text-color: #2f99ff;

@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
-import ReactMarkdown from 'react-markdown';
+import CommonMark from 'commonmark';
+import ReactRenderer from 'commonmark-react-renderer';
 
 // used to convert a numerical month to a written one
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Sep', 'Aug', 'Oct', 'Nov', 'Dec'];
@@ -50,17 +51,41 @@ export default class Event extends React.Component {
   }
 
   render() {
+    const markdownParser = new CommonMark.Parser();
+    const markdownRenderer = new ReactRenderer();
+
+    const descriptionNodes = markdownRenderer.render(markdownParser.parse(this.state.description));
+    const descriptionCards = descriptionNodes
+      .reduce((cards, node) => {
+        if (node.type === 'p') {
+          cards[cards.length - 1].push(node);
+        }
+
+        if (node.type.name === 'Heading') {
+          cards.push([node]);
+        }
+
+        return cards;
+      }, [])
+      .map(card => (
+        <div className="card">
+          <div className="info">
+            {card}
+          </div>
+        </div>
+      ));
+
     return (
       <div>
-        <section className="banner">
+        <header>
           <h1>{this.state.name}</h1>
           {this.dateNode()}
-          <form onSubmit={this.register}>
-            <button>Register</button>
-          </form>
-        </section>
-        <section className="description">
-          <ReactMarkdown source={this.state.description} />
+          <button onClick={this.register}>Register</button>
+        </header>
+        <section className="club">
+          <div className="card-wrapper">
+            {descriptionCards}
+          </div>
         </section>
       </div>
     );
