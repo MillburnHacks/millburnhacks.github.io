@@ -1,6 +1,6 @@
 # millburnhacks
 
-This is the source code for Millburn Hacks' website.
+This is the source code for Millburn Hacks' website. It uses the MIT license.
 
 Before using the website, make sure to install all required packages with
 
